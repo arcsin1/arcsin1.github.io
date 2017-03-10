@@ -1,0 +1,222 @@
+html,
+body {
+  height: 100%;
+  font-size: 14px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  background: #f5f5f5;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+#logo {
+  padding: 25px 50px;
+}
+
+#logo a {
+  text-decoration: none;
+}
+
+#home {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -99px 0 0 -150px;
+  width: 300px;
+  text-align: center;
+}
+
+#home h1 {
+  margin: 20px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+#home a {
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.avatar {
+  margin: 0 auto;
+  width: 120px;
+  height: 120px;
+  background: url("../img/avatar.png") no-repeat;
+  background: -webkit-image-set(
+    url("../img/avatar.png") 1x,
+    url("../img/avatar@2x.png") 2x
+  );
+  border-radius: 50%;
+}
+
+#home .avatar a {
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+@media screen and (max-width: 736px) {
+  #logo {
+    padding: 25px 15px;
+  }
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 240dpi), only screen and (min-resolution: 2dppx) {
+  a:hover {
+    color: #44a340;
+    background: none;
+  }
+}
+
+
+/*.site-meta {
+      padding: 30px 0;
+      color: #fff;
+      margin: 0;
+      text-align: center;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px; 
+      background: #1467af; 
+      a {
+          font-size:24px;
+          color:#fff;
+          display: block;
+          margin-bottom:15px;
+        }  
+}
+
+.menu {
+  margin-top:15px;
+}
+.menu li {
+    padding: 10px 20px;
+    a {
+      color: #333;
+      display: block;
+    }
+}
+.menu li:hover {
+   background: #d8e9f9;
+}
+.active {
+  background: #d8e9f9;
+  color:#1467af;
+}
+
+.avatar-info {
+  margin: 0 auto;
+  width:240px;
+  height: 240px;
+  background: url("../img/logo.png") no-repeat;
+  border-radius: 10px;
+}*/
+#wrap {
+    min-width: 100%;
+    position: absolute;
+    background: #eff3f6 bottom;
+    min-height: 100%;
+    overflow: hidden;
+}
+.left-menu {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background:#fff;
+
+   .overlay {
+      width: 100%;
+      height: 250px;
+      background: url("../img/logo.png") center / contain no-repeat;
+    }
+    .header-author {
+      text-align: center;
+      font-family: Roboto,serif;
+      font-size: 30px;
+    }
+    .header-subtitle {
+      text-align: center;
+      margin-top:15px;
+      color: #999;
+      font-size: 14px;
+      line-height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .header-menu{
+      margin-top:20px;
+      height: 300px;
+      .menu{
+         height: 200px;
+         text-align: center;
+         li{
+          letter-spacing:16px;
+          line-height: 25px;
+         }  
+      }
+        a{
+          color:#b0a0aa;
+            &:hover{
+                 color: #1467af
+              }
+        }    
+      .active{
+         a{color:#1467af;}
+      }
+    }
+  .info{
+    position: absolute;
+    bottom: 30px;
+    left:70px;
+    
+  }
+}
+
+.right-menu {
+    /* position: absolute; */
+    float: left;
+    margin-top:20px;
+    padding-left: 250px;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    /* background-color: #eff3f6; */
+    clear: both;
+    color: #717592;
+    min-width: 100%;
+}
+
+
+
+
+.about {
+  .panel-heading{
+    h1 {
+      color:#fff;
+      font-size: 20px!important;
+      font-weight: bold;
+      line-height: 1.5;
+      text-align: center;
+    }
+  }
+  .panel-body {
+     background: url(../img/skill.png) no-repeat right center;
+    h1 {
+      color:#1467af;
+      font-size: 18px!important;
+      font-weight: bold;
+      line-height: 1.5;
+      
+    }
+    ul {
+      margin-top:15px;
+      margin-bottom: 15px;
+      padding-left: 20px;
+       li {
+        line-height: 1.8;
+        font-size: 14px;
+        color:#333;
+      }
+    }
+  }
+
+}
