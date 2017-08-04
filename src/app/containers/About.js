@@ -35,7 +35,7 @@ class About extends Component {
                   <li>熟悉HTML5/CSS3，可编写符合语义，结构清晰，容易维护的HTML代码结构，对H5新特性有一定掌握，对移动端网页有一定的经验;</li>
                   <li>熟悉Javascript 原生语言，可使用原生JS开发功能以及插件;</li>
                   <li>熟悉JQ、ReactJs、Angularjs、emberjs等JS框架，且有开发经验。了解最新ECMAScript 6的语法;</li>
-                  <li>熟悉使用分布式版本控制系统Git，熟悉且经常使用git命令，在Github有开源项目，用reactJs+redux+webpack等搭建个人技术博客；（https://arcsin1.github.io）</li>
+                  <li>熟悉使用分布式版本控制系统Git，熟悉且经常使用git命令，在Github有开源项目，用reactJs+redux+webpack等搭建个人技术博客</li>
                   <li>熟悉各种前端工具gulp、webpack、less、sass，且有一定开发经验;</li>
                   <li>了解后台python,nodeJS基本语法，并可以开发简单的功能;</li>
                   <li>理解linux知识并使用过;</li>
