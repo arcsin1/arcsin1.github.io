@@ -9,10 +9,10 @@ class About extends Component {
 
 
   render() {
-    const divStyle = {  
+    const divStyle = {
         color: '#333',
-        margin: '200px 200px ' 
-    } 
+        margin: '200px 200px '
+    }
     return (
       <div>
         <Nav title="about"/>
@@ -24,8 +24,8 @@ class About extends Component {
                 <h1>个人信息</h1>
                 <ul>
                   <li>曾云/男/1993</li>
-                  <li>技术博客: <a href="https://expendo.github.io" target="_blank" rel="external">https://expendo.github.io</a></li>
-                  <li>Github: <a href="https://github.com/Expendo" target="_blank" rel="external">https://github.com/Expendo</a></li>
+                  <li>技术博客: <a href="https://arcsin1.github.io" target="_blank" rel="external">https://arcsin1.github.io</a></li>
+                  <li>Github: <a href="https://github.com/arcsin1" target="_blank" rel="external">https://github.com/arcsin1</a></li>
                   <li>Tel: 13896226203</li>
                   <li>QQ: 554688726</li>
                   <li>Email: zy19931129@gmail.com(or 13896226203@163.com)</li>
@@ -45,14 +45,14 @@ class About extends Component {
                 <ul>
                 <li>本人性格开朗大方，待人热情真诚，在工作中能够很好的与同事沟通协调；</li>
                 <li>为人诚信开朗，勤奋务实，工作积极、脚踏实地；既能够独立承担项目任务，又能够融入团队进行有效的协作沟通；</li>
-                <li>在做事方面，因为本人是个急性子，不喜欢把简单事情复杂化，不喜欢拖沓，能够快速解决的事情，会强迫自己第一时间去完成且有效率的；</li>
+                <li>在做事方面，因为本人是个急性子，不喜欢把简单事情复杂化，不喜欢拖沓，能够快速解决的事情；</li>
                 <li>在团队方面注重团队协作精神，注重团队沟通，敢于承担责任且能承受压力。</li>
                 </ul>
                 <h1>工作经历</h1>
                   <ul>
                    <li><a href="http://www.pconline.com.cn/" target="_blank" rel="external">[广州太平洋网络信息咨询有限公司]</a>（ 2014.11 ~ 2015.9 ）前端开发工程师</li>
-                   <li><a href="http://www.sobey.com/" target="_blank" rel="external">[成都索贝数码科技股份有限公司]</a>（2015.9 ~ 2016.9 ） 前端开发工程师</li>
-                   <li><a href="http://www.kf5.com/" target="_blank" rel="external">[成都逸创]</a>（2016年9月 ~ 至今 ） 前端开发工程师</li>
+                   <li><a href="http://www.sobey.com/" target="_blank" rel="external">[成都索贝数码科技股份有限公司]</a>（2015.9 ~ 2017.3 ） 前端开发工程师</li>
+                   <li><a href="http://www.kongge.com/" target="_blank" rel="external">[杭州空格]</a>（2017年4月 ~ 至今 ） 前端开发工程师</li>
                   </ul>
               </div>
           </div>

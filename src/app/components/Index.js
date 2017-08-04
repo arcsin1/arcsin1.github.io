@@ -7,7 +7,7 @@ class Index extends Component {
     return (
       <div id="home">
         <div className="avatar">
-          <a href="https://github.com/Expendo"></a>
+          <a href="https://github.com/arcsin1"></a>
         </div>
         <h1>{LayoutConfig.name}</h1>
         <div className="link">
