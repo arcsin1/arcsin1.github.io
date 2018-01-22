@@ -11,7 +11,7 @@
     "highlight.js": "^9.6.0",
     "history": "^4.5.1",
     "isomorphic-fetch": "^2.2.1",
-    "marked": "^0.3.6",
+    "marked": "^0.3.12",
     "nprogress": "^0.2.0",
     "object-assign": "^4.1.0",
     "react": "^15.3.1",
