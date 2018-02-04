@@ -148,8 +148,8 @@ function putValue(canvas, context, ele, dr, callback) {
   } else {
     const text = ele.innerHTML
     context.save()
-    const fontSize = 4
-    context.font = `${fontSize}em 宋体 bold`
+    const fontSize = 85
+    context.font = `${fontSize}px 宋体 bold`
     context.textAlign = 'center'
     context.textBaseline = 'middle'
     context.fillStyle = `rgba(${parseInt(getRandom(128, 255))},${parseInt(getRandom(128, 255))},${parseInt(getRandom(128, 255))} , 1)`
