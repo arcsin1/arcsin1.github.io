@@ -148,7 +148,7 @@ function putValue(canvas, context, ele, dr, callback) {
   } else {
     const text = ele.innerHTML
     context.save()
-    const fontSize = 85
+    const fontSize = 50
     context.font = `${fontSize}px 宋体 bold`
     context.textAlign = 'center'
     context.textBaseline = 'middle'
