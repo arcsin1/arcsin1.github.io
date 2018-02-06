@@ -3,7 +3,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
 	<style>
-		body{margin:0;padding:0;overflow: hidden;}
+		body{margin:0;padding:0;overflow: hidden;background:#000 }
 		.city{width:100%;position:fixed;bottom: 0px;z-index: 100;border: none;}
 		.city img{width: 100%;border: none;}
 		canvas{border: none}
@@ -14,7 +14,8 @@
 	<canvas id='cas' style="background-color:rgba(0,5,24,1)">浏览器不支持canvas</canvas>
 	<div class="city"><img src="./an/city.png" alt="" /></div>
 	<img src="./an/moon.png" alt="" id="moon" style="visibility: hidden;"/>
-	<iframe style="display:none" frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=454231518&auto=1&height=32"></iframe>
+	<div style="display:none;z-index:-9"><iframe  frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=454231518&auto=1&height=32"></iframe>
+	</div>
 	<div style="display:none">
 		<div class="shape">新年快乐</div>
 		<div class="shape">狗年大运</div>
