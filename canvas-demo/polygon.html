@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+</canvas>
+
+<script>
+function $$(id){
+    return document.getElementById(id);
+}
+/*
+* n：表示n边形
+* cx、cy：表示n边形中心坐标
+* size：表示n边形的大小
+* 此函数只能绘制正多边形
+*/
+
+function createPolygon(cxt, n, cx, cy, size) {
+    cxt.beginPath(); // 开始路径
+    var degree = (2 * Math.PI )/ n;
+    for (var i = 0; i < n; i++) {
+            var x = Math.cos(i * degree);
+            var y = Math.sin(i * degree);
+            cxt.lineTo(x * size + cx, y * size + cy);
+    }
+    cxt.closePath(); // 关闭路径 经常要用
+}
+//1、获取canvas对象
+const canvas = $$("myCanvas");
+//2、获取上下文环境对象context
+const cxt = canvas.getContext("2d");
+//3、开始绘制图形
+createPolygon(cxt, 3, 200, 200, 50);
+cxt.fillStyle = "blue";
+cxt.fill();
+
+
+createPolygon(cxt, 4, 100, 100, 50);
+cxt.fillStyle = "red";
+cxt.fill();
+
+createPolygon(cxt, 5, 300, 100, 50);
+cxt.fillStyle = "red";
+cxt.fill();
+
+
+// 绘制5角星
+/* cxt.beginPath();
+for (var i = 0; i < 5; i++) {
+    cxt.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * 50 + 100,
+                -Math.sin((18 + i * 72) * Math.PI / 180) * 50 + 100);
+                cxt.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * 25 + 100,
+                          -Math.sin((54 + i * 72) * Math.PI / 180) * 25 + 100);
+    }
+cxt.closePath();
+cxt.stroke(); 
+*/
+
+
+ </script>
+
+</body>
+</html>

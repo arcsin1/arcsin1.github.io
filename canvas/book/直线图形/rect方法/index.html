@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>2.3 rect()方法 · GitBook</title>
+        <title>2.4 rect()方法 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../曲线图形/" />
+    <link rel="next" href="../clearRect方法/" />
     
     
     <link rel="prev" href="../fillRect和strokeRect/" />
@@ -270,7 +270,33 @@
                 <a href="./">
             
                     
-                    2.3 rect()方法
+                    2.4 rect()方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../clearRect方法/">
+            
+                <a href="../clearRect方法/">
+            
+                    
+                    2.5 clearRect()方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../多边形/">
+            
+                <a href="../多边形/">
+            
+                    
+                    2.6 多边形
             
                 </a>
             
@@ -410,7 +436,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >2.3 rect()方法</a>
+        <a href="../.." >2.4 rect()方法</a>
     </h1>
 </div>
 
@@ -426,7 +452,30 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="23-rect&#x65B9;&#x6CD5;">2.3 rect()&#x65B9;&#x6CD5;</h1>
+<pre><code>rect(x,y,width,height)
 
+strokeRect()&#x3001;fillRect()&#x548C;rect()&#x90FD;&#x53EF;&#x4EE5;&#x753B;&#x77E9;&#x5F62;&#x3002;&#x8FD9;&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#x53C2;&#x6570;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x4E0D;&#x540C;&#x5728;&#x4E8E;&#x5B9E;&#x73B0;&#x6548;&#x679C;&#x65B9;&#x9762;&#x3002;&#x5176;&#x4E2D;strokeRect()&#x548C;fillRect()&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5728;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x7ACB;&#x5373;&#x628A;&#x77E9;&#x5F62;&#x7ED8;&#x5236;&#x51FA;&#x6765;&#x3002;&#x800C;rect()&#x65B9;&#x6CD5;&#x5728;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x628A;&#x77E9;&#x5F62;&#x7ED8;&#x5236;&#x51FA;&#x6765;&#x3002;
+
+&#x53EA;&#x6709;&#x5728;&#x4F7F;&#x7528;rect()&#x65B9;&#x6CD5;&#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528;stroke()&#x6216;&#x8005;fill()&#x65B9;&#x6CD5;&#xFF0C;&#x624D;&#x4F1A;&#x628A;&#x77E9;&#x5F62;&#x7ED8;&#x5236;&#x51FA;&#x6765;(&#x7EBF;&#x6761;&#x548C;&#x989C;&#x8272;)
+</code></pre><p>1.rect()&#x548C;stroke()</p>
+<pre><code>cxt.strokeStyle=&quot;red&quot;;
+cxt.rect(50,50,80,80);
+cxt.stroke();
+
+&#x7B49;&#x4EF7;&#x4E8E;
+
+cxt.strokeStyle=&quot;red&quot;;
+cxt.strokeRect(50,50,80,80);
+</code></pre><p>2.rect()&#x548C;fill()</p>
+<pre><code>cxt.fillStyle=&quot;red&quot;;
+cxt.rect(50,50,80,80);
+cxt.fill();
+
+&#x7B49;&#x4EF7;&#x4E8E;
+
+cxt.fillStyle=&quot;red&quot;;
+cxt.fillRect(50,50,80,80);
+</code></pre>
                                 
                                 </section>
                             
@@ -458,7 +507,7 @@
                 </a>
                 
                 
-                <a href="../../曲线图形/" class="navigation navigation-next " aria-label="Next page: 第3章 曲线图形">
+                <a href="../clearRect方法/" class="navigation navigation-next " aria-label="Next page: 2.5 clearRect()方法">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -469,7 +518,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.3 rect()方法","level":"1.3.4","depth":2,"next":{"title":"第3章 曲线图形","level":"1.4","depth":1,"path":"曲线图形/README.md","ref":"曲线图形/README.md","articles":[]},"previous":{"title":"2.3 fillRect和strokeRect","level":"1.3.3","depth":2,"path":"直线图形/fillRect和strokeRect/README.md","ref":"直线图形/fillRect和strokeRect/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"直线图形/rect方法/README.md","mtime":"2018-05-12T05:50:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-12T06:09:59.757Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.4 rect()方法","level":"1.3.4","depth":2,"next":{"title":"2.5 clearRect()方法","level":"1.3.5","depth":2,"path":"直线图形/clearRect方法/README.md","ref":"直线图形/clearRect方法/README.md","articles":[]},"previous":{"title":"2.3 fillRect和strokeRect","level":"1.3.3","depth":2,"path":"直线图形/fillRect和strokeRect/README.md","ref":"直线图形/fillRect和strokeRect/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"直线图形/rect方法/README.md","mtime":"2018-05-12T06:45:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-12T06:48:49.931Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../曲线图形/" />
+    <link rel="next" href="strokeRect矩形/" />
     
     
     <link rel="prev" href="../Canvas基础/Canvas其它/" />
@@ -223,6 +223,64 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="strokeRect矩形/">
+            
+                <a href="strokeRect矩形/">
+            
+                    
+                    2.1 strokeRect矩形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="fillRect矩形/">
+            
+                <a href="fillRect矩形/">
+            
+                    
+                    2.2 fillRect矩形
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="fillRect和strokeRect/">
+            
+                <a href="fillRect和strokeRect/">
+            
+                    
+                    2.3 fillRect和strokeRect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="rect方法/">
+            
+                <a href="rect方法/">
+            
+                    
+                    2.3 rect()方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.4" data-path="../曲线图形/">
@@ -373,7 +431,7 @@
 moveTo(x1,y1) &#x79FB;&#x52A8;&#x5230;&#x67D0;&#x4E2A;&#x8D77;&#x59CB;&#x70B9;&#x4F4D;&#x7F6E;
 lineTo(x2,y2) &#x628A;(x1,y1)&#x8D77;&#x70B9;&#x8FDE;&#x63A5;&#x5230;&#x7EC8;&#x70B9;(x2,y2)  &#x6B64;&#x65F6;&#x8FD8;&#x6CA1;&#x5F00;&#x59CB;&#x753B;
 stroke()  &#x753B;&#x7B14;&#x753B;&#x4E0A;&#x9762;&#x7684;&#x7EBF;
-</code></pre><p>&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;<a href="https://arcsin1.github.io/canvas-demo//line.html" target="_blank">demo</a></p>
+</code></pre><p>&#x4E00;&#x6761;&#x76F4;&#x7EBF;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;<a href="https://arcsin1.github.io/canvas-demo//line.html" target="_blank">demo</a></p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt; 
@@ -396,6 +454,83 @@ cxt.lineTo(150, 50);
 cxt.stroke();
 
 &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x591A;&#x6761;&#x76F4;&#x63A5;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;<a href="https://arcsin1.github.io/canvas-demo//line1.html" target="_blank">demo</a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt; 
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;title&gt;&lt;/title&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;200&quot; height=&quot;100&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
+&lt;/canvas&gt;
+
+&lt;script&gt;
+//1&#x3001;&#x83B7;&#x53D6;canvas&#x5BF9;&#x8C61;
+const canvas = document.getElementById(&quot;myCanvas&quot;);
+//2&#x3001;&#x83B7;&#x53D6;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#x5BF9;&#x8C61;context
+const cxt = canvas.getContext(&quot;2d&quot;);
+//3&#x3001;&#x5F00;&#x59CB;&#x7ED8;&#x5236;&#x56FE;&#x5F62;
+ cxt.moveTo(50,50);
+ cxt.lineTo(100,50);
+
+ cxt.moveTo(50,100);
+ cxt.lineTo(100,100);
+ cxt.stroke();
+
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>&#x51E0;&#x4F55;&#x56FE;&#x5F62;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;<a href="https://arcsin1.github.io/canvas-demo/geometry.html" target="_blank">demo</a></p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt; 
+&lt;meta charset=&quot;utf-8&quot;&gt; 
+&lt;title&gt;&lt;/title&gt; 
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;canvas id=&quot;myCanvas&quot; width=&quot;800&quot; height=&quot;600&quot; style=&quot;border:1px solid #c3c3c3;&quot;&gt;
+&lt;/canvas&gt;
+
+&lt;script&gt;
+function $$(id){
+    return document.getElementById(id);
+}
+function text(text,x,y) {
+    cxt.font = &quot;bold 15px &#x5FAE;&#x8F6F;&#x96C5;&#x9ED1;&quot;
+    cxt.fillStyle = &quot;#000&quot;
+    cxt.fillText(text,x,y)
+}
+//1&#x3001;&#x83B7;&#x53D6;canvas&#x5BF9;&#x8C61;
+const canvas = $$(&quot;myCanvas&quot;);
+//2&#x3001;&#x83B7;&#x53D6;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#x5BF9;&#x8C61;context
+const cxt = canvas.getContext(&quot;2d&quot;);
+//3&#x3001;&#x5F00;&#x59CB;&#x7ED8;&#x5236;&#x56FE;&#x5F62;
+// &#x4E09;&#x89D2;&#x5F62;
+text(&apos;&#x76F4;&#x7EBF;&#x753B;&#x4E09;&#x89D2;&#x5F62;&apos;,60,60)
+cxt.moveTo(50, 100);
+cxt.lineTo(150, 50);
+cxt.lineTo(150, 100);
+cxt.lineTo(50, 100);
+cxt.stroke();
+
+//&#x753B;&#x77E9;&#x5F62;
+text(&apos;&#x76F4;&#x63A5;&#x753B;&#x77E9;&#x5F62;&apos;,140,200)
+cxt.moveTo(120, 180);
+cxt.lineTo(120,300); 
+cxt.lineTo(200, 300);
+cxt.lineTo(200, 180);
+cxt.lineTo(120, 180);
+cxt.stroke();
+
+
+ &lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -431,7 +566,7 @@ cxt.stroke();
                 </a>
                 
                 
-                <a href="../曲线图形/" class="navigation navigation-next " aria-label="Next page: 第3章 曲线图形">
+                <a href="strokeRect矩形/" class="navigation navigation-next " aria-label="Next page: 2.1 strokeRect矩形">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -442,7 +577,7 @@ cxt.stroke();
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第2章 直线图形","level":"1.3","depth":1,"next":{"title":"第3章 曲线图形","level":"1.4","depth":1,"path":"曲线图形/README.md","ref":"曲线图形/README.md","articles":[]},"previous":{"title":"1.7 Canvas其它","level":"1.2.7","depth":2,"path":"Canvas基础/Canvas其它/README.md","ref":"Canvas基础/Canvas其它/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"直线图形/README.md","mtime":"2018-05-12T04:07:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-12T04:11:38.327Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"第2章 直线图形","level":"1.3","depth":1,"next":{"title":"2.1 strokeRect矩形","level":"1.3.1","depth":2,"path":"直线图形/strokeRect矩形/README.md","ref":"直线图形/strokeRect矩形/README.md","articles":[]},"previous":{"title":"1.7 Canvas其它","level":"1.2.7","depth":2,"path":"Canvas基础/Canvas其它/README.md","ref":"Canvas基础/Canvas其它/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"直线图形/README.md","mtime":"2018-05-12T06:05:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-12T06:09:59.757Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
