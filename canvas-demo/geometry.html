@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+</canvas>
+
+<script>
+function $$(id){
+    return document.getElementById(id);
+}
+function text(text,x,y) {
+    cxt.font = "bold 15px 微软雅黑"
+    cxt.fillStyle = "#000"
+    cxt.fillText(text,x,y)
+}
+//1、获取canvas对象
+const canvas = $$("myCanvas");
+//2、获取上下文环境对象context
+const cxt = canvas.getContext("2d");
+//3、开始绘制图形
+// 三角形
+text('直线画三角形',60,60)
+cxt.moveTo(50, 100);
+cxt.lineTo(150, 50);
+cxt.lineTo(150, 100);
+cxt.lineTo(50, 100);
+cxt.stroke();
+
+//画矩形
+text('直接画矩形',140,200)
+cxt.moveTo(120, 180);
+cxt.lineTo(120,300); 
+cxt.lineTo(200, 300);
+cxt.lineTo(200, 180);
+cxt.lineTo(120, 180);
+cxt.stroke();
+
+
+// 描边矩形
+text('描边矩形',320,340)
+cxt.strokeStyle = 'blue';
+cxt.strokeRect(300,300,100,100);
+
+// 填充矩形
+text('填充矩形',320,50)
+cxt.fillStyle= 'red';
+cxt.fillRect(300, 70, 100, 100);
+
+// 同时使用描边矩形和填充矩形
+text('同时使用描边矩形和填充矩形',520,30)
+cxt.strokeStyle = "blue";
+cxt.strokeRect(500, 50, 80, 80);
+cxt.fillStyle = "#FFE8E8";
+cxt.fillRect(500, 50, 80, 80);
+
+// 混合模式的颜色重叠
+
+cxt.fillStyle = "HotPink";
+cxt.fillRect(50, 400, 80, 80);
+cxt.fillStyle = "rgba(0,0,255,0.3)";
+cxt.fillRect(30, 420, 80, 80);
+
+
+ </script>
+
+</body>
+</html>
