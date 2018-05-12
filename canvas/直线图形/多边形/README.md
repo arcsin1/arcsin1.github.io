@@ -67,7 +67,9 @@ function $$(id){
 * n：表示n边形
 * cx、cy：表示n边形中心坐标
 * size：表示n边形的大小
+* 此函数只能绘制正多边形
 */
+
 function createPolygon(cxt, n, cx, cy, size) {
     cxt.beginPath(); // 开始路径
     var degree = (2 * Math.PI )/ n;
@@ -95,6 +97,20 @@ cxt.fill();
 createPolygon(cxt, 5, 300, 100, 50);
 cxt.fillStyle = "red";
 cxt.fill();
+
+
+// 绘制5角星
+/* cxt.beginPath();
+for (var i = 0; i < 5; i++) {
+    cxt.lineTo(Math.cos((18 + i * 72) * Math.PI / 180) * 50 + 100,
+                -Math.sin((18 + i * 72) * Math.PI / 180) * 50 + 100);
+                cxt.lineTo(Math.cos((54 + i * 72) * Math.PI / 180) * 25 + 100,
+                          -Math.sin((54 + i * 72) * Math.PI / 180) * 25 + 100);
+    }
+cxt.closePath();
+cxt.stroke(); 
+*/
+
 
  </script>
 
