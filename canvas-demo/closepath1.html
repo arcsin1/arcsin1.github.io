@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+</canvas>
+
+<script>
+function $$(id){
+    return document.getElementById(id);
+}
+function text(text,x,y) {
+    cxt.font = "bold 15px 微软雅黑"
+    cxt.fillStyle = "#000"
+    cxt.fillText(text,x,y)
+}
+//1、获取canvas对象
+const canvas = $$("myCanvas");
+//2、获取上下文环境对象context
+const cxt = canvas.getContext("2d");
+//3、开始绘制图形
+
+text('没有cxt.lineTo(40, 60)封闭',100,20)
+cxt.moveTo(40, 60);
+cxt.lineTo(100, 60);
+cxt.lineTo(100, 30);
+cxt.lineTo(150, 75);
+cxt.lineTo(100, 120);
+cxt.lineTo(100, 90);
+cxt.lineTo(40, 90);
+// cxt.lineTo(40, 60);
+cxt.stroke();
+
+
+text('另外的closePath来自动封闭',70,250)
+cxt.moveTo(130, 150);
+cxt.lineTo(190, 150);
+cxt.lineTo(190, 120);
+cxt.lineTo(250, 175);
+cxt.lineTo(190, 210);
+cxt.lineTo(190, 180);
+cxt.lineTo(130, 180);
+cxt.closePath()
+cxt.stroke();
+
+ </script>
+
+</body>
+</html>
