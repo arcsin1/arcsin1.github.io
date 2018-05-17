@@ -286,7 +286,7 @@ const canvas = $$("myCanvas");
 //2、获取上下文环境对象context
 const cxt = canvas.getContext("2d");
 //3、开始绘制图形
-const text = "绿叶学习网";
+const text = "数澜科技";
 cxt.font = "bold 20px 微软雅黑";
 
 cxt.fillStyle = "HotPink";
