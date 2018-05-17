@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+</canvas>
+
+<script>
+function $$(id){
+    return document.getElementById(id);
+}
+
+//1、获取canvas对象
+const canvas = $$("myCanvas");
+//2、获取上下文环境对象context
+const cxt = canvas.getContext("2d");
+//3、开始绘制图形
+//绘制一个"描边圆"，圆心为（50，50），半径为40
+cxt.beginPath();
+cxt.arc(50, 50, 40, 0, 360 * Math.PI / 180, true);
+cxt.closePath();
+cxt.strokeStyle = "HotPink";
+cxt.stroke();
+
+//使用clip()，使得"描边圆"成为一个剪切区域
+cxt.clip(); // 你可以试着把这个去掉看看
+
+//绘制一个"填充矩形"
+cxt.beginPath();
+cxt.fillStyle = "#66CCFF";
+cxt.fillRect(50, 50, 100, 80);
+
+
+ </script>
+
+</body>
+</html>

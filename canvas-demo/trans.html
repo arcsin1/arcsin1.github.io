@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+</canvas>
+<script>
+function $$(id){
+    return document.getElementById(id);
+}
+
+//1、获取canvas对象
+const canvas = $$("myCanvas");
+//2、获取上下文环境对象context
+const cxt = canvas.getContext("2d");
+//3、开始绘制图形
+cxt.fillStyle = "HotPink";
+cxt.translate(30, 30);
+cxt.fillRect(0, 0, 100, 50);
+
+cxt.fillStyle = "red ";
+
+cxt.translate(60, 60);
+cxt.fillRect(0, 0, 100, 50);
+
+
+
+ </script>
+
+</body>
+</html>

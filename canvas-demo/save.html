@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+<canvas id="myCanvas" width="800" height="600" style="border:1px solid #c3c3c3;">
+</canvas>
+<input id="btn" type="button" value="绘制新图"/>
+<script>
+function $$(id){
+    return document.getElementById(id);
+}
+
+//1、获取canvas对象
+const canvas = $$("myCanvas");
+//2、获取上下文环境对象context
+const cxt = canvas.getContext("2d");
+//3、开始绘制图形
+
+//save()保存状态
+cxt.save();
+//使用clip()方法指定一个圆形的剪切区域
+cxt.beginPath();
+cxt.arc(70, 70, 50, 0, 360 * Math.PI / 180, true);
+
+cxt.closePath();
+cxt.stroke();
+cxt.clip();
+//绘制一张图片
+var image = new Image();
+image.src = "2.png";
+image.onload = function () {
+    cxt.drawImage(image, 10, 20);
+}
+$$("btn").onclick = function () {
+    //restore()恢复状态
+    cxt.restore();
+    //清空画布
+    cxt.clearRect(0, 0, canvas.width, canvas.height);
+    //绘制一张新图片
+    var image = new Image();
+    image.src = "7.png";
+    image.onload = function () {
+        cxt.drawImage(image, 10, 20);
+    }
+    
+}
+
+
+ </script>
+
+</body>
+</html>
