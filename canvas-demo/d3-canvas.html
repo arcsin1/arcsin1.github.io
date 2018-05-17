@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+<script src="http://cdn.dtwave.com/public/d3/4.13.0/d3.min.js"></script>
+</head>
+<body>
+<script>
+const width = 800
+const height = 600
+const margin = { top: 20, bottom: 30, left: 30, right: 20 }
+const renderWitdh = width - margin.left - margin.right
+const renderHeight = height - margin.top - margin.bottom
+const canvas = d3.select('body')
+    	.append('canvas')
+    	.attr('width', width)
+    	.attr('height', height)
+        .style('border','1px solid #ddd')
+
+const context = canvas.node().getContext('2d')
+
+context.translate(margin.left, margin.top);
+const data = [21, 50, 10, 35, 90, 25, 12, 67, 5, 3, 18]
+
+    // x scale
+    var x = d3.scaleBand()
+    	.domain(data)
+    	.rangeRound([0, renderWitdh])
+    	.padding(0.2);
+   	
+    // y scale
+    var y = d3.scaleLinear()
+    	.domain([0, d3.max(data)])
+    	.rangeRound([renderHeight, 0]);
+    
+    // 设置y的ticks
+    var yTickCount = 10;
+    var yTicks = y.ticks(yTickCount);
+    
+   // 开始新的路径
+    context.beginPath();
+    context.strokeStyle = "ddd";
+    // 画出ticks的每个点
+    x.domain().forEach(d => {
+      context.moveTo(x(d) + x.bandwidth() / 2, renderHeight);
+      context.lineTo(x(d) + x.bandwidth() / 2,  renderHeight+6 );
+    });
+    context.stroke();
+    
+    // 设置文字方式
+    context.textAlign = "center";
+    context.textBaseline = "top";
+    x.domain().forEach((d, i) => {
+      context.fillText(i, x(d) + x.bandwidth() / 2, renderHeight + 14);      
+    });
+    // x轴横穿线
+    context.beginPath()
+    context.moveTo(10, renderHeight+0.5);
+    context.lineTo(renderWitdh-10, renderHeight+0.5);
+    context.stroke()
+
+
+    // 开始新的路径
+    context.beginPath();
+    //context.strokeStyle = "#ddd";
+    // y-axis的ticks
+    yTicks.forEach(d => {
+      context.moveTo(0, y(d) + 0.5);
+      context.lineTo(-6, y(d) + 0.5);
+    });
+    context.textAlign = "right";
+    context.textBaseline = "middle";
+    yTicks.forEach(d => {
+      context.fillText(d, -9, y(d));
+    });
+    context.stroke()
+    // 画y轴线
+    context.beginPath();
+    context.lineTo(0.5, 0.5);
+    context.lineTo(0.5, renderHeight + 0.5);
+    context.stroke()
+   
+   // 画柱子
+    context.beginPath();
+    context.fillStyle = 'steelblue';    
+    data.forEach((d, i) => {  
+      context.fillRect(x(d), y(d), x.bandwidth(), renderHeight - y(d));
+    });
+
+    // 画data在对应x点上的y取值
+    context.beginPath();
+    context.fillStyle = '#000';  
+    context.textAlign = "center";
+    context.textBaseline = "bottom";
+    x.domain().forEach((d, i) => {
+      context.fillText(d, x(d) + x.bandwidth() / 2, y(d));
+    });
+</script>
+</body>
+</html> 
+    
