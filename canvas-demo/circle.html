@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title></title> 
+</head>
+<body>
+
+</canvas>
+<script>
+
+
+
+  class Circle {
+   constructor(context,width,height,item) {
+        this.context = context
+        this.radius = 0
+        this.radius1 = 0
+        this.maxRadius = item.radius || 25
+        this.width = width
+        this.height = height
+        this.x = item.x
+        this.y = item.y
+        this.color = item.color
+        this.drawFrame()
+    }
+    drawCircle() {
+       
+        this.context.beginPath();
+        this.context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        this.context.closePath();
+        this.context.lineWidth = 2; //线条宽度
+        this.context.strokeStyle = this.color ; //颜色
+        this.context.stroke();
+        this.radius += 0.5; //每一帧半径增加0.5
+
+
+        this.context.beginPath();
+        this.context.arc(this.x, this.y, this.radius1, 0, Math.PI * 2);
+        this.context.closePath();
+        this.context.lineWidth = 1; //线条宽度
+        this.context.strokeStyle = this.color ; //颜色
+        this.context.stroke();
+        this.radius1 += 0.3; //每一帧半径增加0.3
+
+        //半径radius大于25时，重置为0
+        if (this.radius > this.maxRadius) {
+            this.radius = 0
+        }
+        //半径radius大于25时，重置为0
+        if (this.radius1 > this.maxRadius) {
+            this.radius1 = 0
+        }
+
+       
+    }
+    render() {
+        //默认值为source-over
+        const prev = this.context.globalCompositeOperation;
+
+        //只显示canvas上原图像的重叠部分
+        this.context.globalCompositeOperation = 'destination-in';
+
+        //设置主canvas的绘制透明度
+        this.context.globalAlpha = 0.95;
+
+        //这一步目的是将canvas上的图像变的透明
+        this.context.fillRect(0, 0, this.width, this.height);
+
+        //在原图像上重叠新图像
+        this.context.globalCompositeOperation = prev;
+
+        //在主canvas上画新圆
+        this.drawCircle();
+    }
+    drawFrame() {
+     requestAnimationFrame(() =>this.drawFrame())
+     this.render()
+    }
+  }
+  
+  function createCanvas(param) {
+    const canvas = document.createElement('canvas'); 
+    canvas.id = "myCanvas" 
+    canvas.width = param.width
+    canvas.height = param.height
+    canvas.style.background = '#333'
+    canvas.style.position = 'absolute'
+    canvas.style.top = `${param.top}px`
+    canvas.style.left = `${param.left}px`
+    document.body.appendChild(canvas)
+    const context = canvas.getContext("2d")
+    param.circle.map(item => new Circle(context, param.width, param.height, item))
+   
+}
+    const obj = {
+        width: 800,
+        height:600,
+        top: 200,
+        left:100,
+        circle:[{x:150,y:100,color:'red'},{x:250,y:100,color:'rgba(250,250,50,1)'}],
+    }
+  createCanvas(obj)
+
+ </script>
+
+</body>
+</html>
+
