@@ -450,7 +450,107 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="11-canvas&#x5F00;&#x59CB;">1.1 Canvas&#x5F00;&#x59CB;</h1>
+<p>&#x5177;&#x4F53;&#x4F8B;&#x5B50;&#xFF1A;<a href="https://arcsin1.github.io/canvas-demo/d3-canvas.html" target="_blank">demo</a></p>
+<h3 id="&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;">&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;:</h3>
+<blockquote>
+<p>&#x8BF4;&#x660E;&#x5728;canvas&#x91CC;&#x9762;&#x6211;&#x6700;&#x597D;&#x5728;&#x5F00;&#x59CB;&#x753B;&#x53E6;&#x5916;&#x90E8;&#x5206;&#x7684;&#x65F6;&#x5019;&#x7528;context.beginPath();&#x5F00;&#x59CB;&#x65B0;&#x8DEF;&#x5F84;&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x4E0D;&#x61C2;&#x7684;&#x8BF7;&#x770B;Canvas&#x8DEF;&#x5F84;&#x90A3;&#x4E00;&#x7AE0;</p>
+</blockquote>
+<h4 id="111-&#x5148;&#x7528;d3&#x521B;&#x5EFA;canvas">1.1.1 &#x5148;&#x7528;D3&#x521B;&#x5EFA;Canvas</h4>
+<pre><code>const width = 800
+const height = 600
+const margin = { top: 20, bottom: 30, left: 30, right: 20 }
+//&#x5B9E;&#x9645;&#x6E32;&#x67D3;&#x5BBD;&#x5EA6;
+const renderWitdh = width - margin.left - margin.right 
+//&#x5B9E;&#x9645;&#x6E32;&#x67D3;&#x9AD8;&#x5EA6;
+const renderHeight = height - margin.top - margin.bottom 
 
+const canvas = d3.select(&apos;body&apos;)
+        .append(&apos;canvas&apos;)
+        .attr(&apos;width&apos;, width)
+        .attr(&apos;height&apos;, height)
+        .style(&apos;border&apos;,&apos;1px solid #ddd&apos;)
+
+const context = canvas.node().getContext(&apos;2d&apos;)
+// &#x8FD9;&#x4E2A;&#x4E3B;&#x8981;&#x628A;&#x6574;&#x4F53;&#x7684;&#x53F3;&#x4E0A;&#x89D2;&#x5750;&#x6807;&#x79FB;&#x8D70;
+context.translate(margin.left, margin.top);
+// &#x6570;&#x636E;
+const data = [21, 50, 10, 35, 90, 25, 12, 67, 5, 3, 18]
+</code></pre><h4 id="112--&#x521B;&#x5EFA;&#x6BD4;&#x4F8B;&#x5C3A;">1.1.2  &#x521B;&#x5EFA;&#x6BD4;&#x4F8B;&#x5C3A;</h4>
+<pre><code> // x&#x8F74;&#x6BD4;&#x4F8B;&#x5C3A;
+    var x = d3.scaleBand()
+        .domain(data)
+        .rangeRound([0, renderWitdh])
+        .padding(0.2);
+
+// y&#x8F74;&#x6BD4;&#x5217;&#x5C3A;
+var y = d3.scaleLinear()
+    .domain([0, d3.max(data)])
+    .rangeRound([renderHeight, 0]);
+
+// &#x8BBE;&#x7F6E;y&#x7684;ticks
+var yTickCount = 10;
+var yTicks = y.ticks(yTickCount);
+</code></pre><h4 id="113-&#x753B;x&#x8F74;&#x76F8;&#x5173;">1.1.3 &#x753B;x&#x8F74;&#x76F8;&#x5173;</h4>
+<pre><code>// &#x5F00;&#x59CB;&#x65B0;&#x7684;&#x8DEF;&#x5F84;
+context.beginPath();
+context.strokeStyle = &quot;ddd&quot;;
+// &#x753B;&#x51FA;ticks&#x7684;&#x6BCF;&#x4E2A;&#x70B9;
+x.domain().forEach(d =&gt; {
+  context.moveTo(x(d) + x.bandwidth() / 2, renderHeight);
+  context.lineTo(x(d) + x.bandwidth() / 2,  renderHeight+6 );
+});
+context.stroke();
+
+// &#x8BBE;&#x7F6E;&#x6587;&#x5B57;&#x65B9;&#x5F0F;
+context.textAlign = &quot;center&quot;;
+context.textBaseline = &quot;top&quot;;
+x.domain().forEach((d, i) =&gt; {
+  context.fillText(i, x(d) + x.bandwidth() / 2, renderHeight + 14);      
+});
+
+// x&#x8F74;&#x6A2A;&#x7A7F;&#x7EBF;
+context.beginPath()
+context.moveTo(10, renderHeight+0.5);
+context.lineTo(renderWitdh-10, renderHeight+0.5);
+context.stroke()
+</code></pre><h4 id="114-&#x753B;y&#x8F74;&#x76F8;&#x5173;">1.1.4 &#x753B;y&#x8F74;&#x76F8;&#x5173;</h4>
+<pre><code>// &#x5F00;&#x59CB;&#x65B0;&#x7684;&#x8DEF;&#x5F84;
+context.beginPath();
+//context.strokeStyle = &quot;#ddd&quot;;
+// y-axis&#x7684;ticks
+yTicks.forEach(d =&gt; {
+  context.moveTo(0, y(d) + 0.5);
+  context.lineTo(-6, y(d) + 0.5);
+});
+context.textAlign = &quot;right&quot;;
+context.textBaseline = &quot;middle&quot;;
+yTicks.forEach(d =&gt; {
+  context.fillText(d, -9, y(d));
+});
+context.stroke()
+
+// &#x753B;y&#x8F74;&#x7EBF;
+context.beginPath();
+context.lineTo(0.5, 0.5);
+context.lineTo(0.5, renderHeight + 0.5);
+context.stroke()
+</code></pre><h4 id="115-&#x753B;&#x67F1;&#x5B50;&#x548C;&#x6587;&#x5B57;&#x8BF4;&#x660E;">1.1.5 &#x753B;&#x67F1;&#x5B50;&#x548C;&#x6587;&#x5B57;&#x8BF4;&#x660E;</h4>
+<pre><code> // &#x753B;&#x67F1;&#x5B50;
+context.beginPath();
+context.fillStyle = &apos;steelblue&apos;;    
+data.forEach((d, i) =&gt; {  
+  context.fillRect(x(d), y(d), x.bandwidth(), renderHeight - y(d));
+});
+
+// &#x753B;data&#x5728;&#x5BF9;&#x5E94;x&#x70B9;&#x4E0A;&#x7684;y&#x53D6;&#x503C;
+context.beginPath();
+context.fillStyle = &apos;#000&apos;;  
+context.textAlign = &quot;center&quot;;
+context.textBaseline = &quot;bottom&quot;;
+x.domain().forEach((d, i) =&gt; {
+  context.fillText(d, x(d) + x.bandwidth() / 2, y(d));
+});
+</code></pre>
                                 
                                 </section>
                             
@@ -489,7 +589,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.1 Canvas开始","level":"1.9.1","depth":2,"previous":{"title":"第三部分 Canvas与D3应用","level":"1.9","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"1.1 Canvas开始","level":"1.9.1","depth":2,"path":"Canvas与D3应用/Canvas开始/README.md","ref":"Canvas与D3应用/Canvas开始/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Canvas与D3应用/Canvas开始/README.md","mtime":"2018-05-12T02:44:56.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-17T03:03:50.122Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.1 Canvas开始","level":"1.9.1","depth":2,"previous":{"title":"第三部分 Canvas与D3应用","level":"1.9","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"1.1 Canvas开始","level":"1.9.1","depth":2,"path":"Canvas与D3应用/Canvas开始/README.md","ref":"Canvas与D3应用/Canvas开始/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Canvas与D3应用/Canvas开始/README.md","mtime":"2018-05-17T08:24:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-17T03:03:50.122Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
