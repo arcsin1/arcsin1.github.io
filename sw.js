@@ -4,11 +4,6 @@
 const CACHE_NAME = 'service-cache-by-test';
 const urlToCache =[
     '/',
-    '/js/main.js',
-    '/css/main.css',
-    '/img/test.png',
-    'https://yongling8808.github.io/sw/samples/service-worker/offline-page/images/banner.png',
-    'https://images-na.ssl-images-amazon.com/images/G/01/authportal/common/js/ap-checkout-frn._CB309092179_.js'
 ]
 
 // 安装事件
