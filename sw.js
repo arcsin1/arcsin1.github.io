@@ -1,5 +1,14 @@
 "use strict"
-
+ if ('serviceWorker' in navigator) {
+            console.log('1111111')
+          navigator.serviceWorker.register('https://arcsin1.github.io/sw.js',{scope: './'}).then(function(reg) {
+          // registration worked
+          console.log('Registration succeeded. Scope is ' + reg.scope);
+        }).catch(function(error) {
+          // registration failed
+          console.log('Registration failed with ' + error);
+      });
+  }
 
 const CACHE_NAME = 'service-cache-by-test';
 const urlToCache =[
