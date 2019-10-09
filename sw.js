@@ -4,6 +4,8 @@
 const CACHE_NAME = 'service-cache-by-test';
 const urlToCache =[
     '/',
+    '/styles/main.css',
+    '/script/main.js'
 ]
 
 // 安装事件
