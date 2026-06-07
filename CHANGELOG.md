@@ -1,51 +1,46 @@
 
-## 2026-06-02 · v2.0.14
- 
- 这是一个功能性增加和优化的过渡版本，计划下个版本对编辑页进行大的交互改造！
+## 2026-06-07 · v2.0.15
  
 ### 完整更新日志： https://github.com/arcsin1/oh-my-ppt/releases
-
+### 新官网： https://www.ohmyppt.cc
 ### 中文
 
-- **新增 AI 生图工作流**：编辑页右侧新增图片生成模式，可围绕当前页面生成配图素材，并支持将生成图片添加到画布、设置为页面背景或直接定位本地文件。
-- **新增多生图模型接入配置**：目前支持即梦、Agnes AI、硅基流动、OpenAI-compatible 图片接口和 Gemini 图片生成，并可在设置页独立管理、启用和验证生图模型。
-- **新增配图提示词辅助**：支持「大纲提示词」和「风格提示词」，可根据当前页标题、大纲、页面视觉风格和用户输入生成更适合当前页面的配图描述；
-- **新增统一模型切换体验**：创建、模板复用、风格导入、图片解析等需要模型参与的操作，都可以在执行前选择本次使用的模型，减少频繁进入设置页切换的成本，多模型切换更方便。
-- **新增页面大纲**：编辑页支持读取、展示和编辑修改页面大纲，创建、导入、页面管理和单页补写流程中的页面上下文更清晰。
-- **新增 HTTP/SOCKS 代理支持**：可为模型服务配置代理，提升访问 Gemini 等外部服务时的网络兼容性。
-- **新增 macOS Intel 架构支持配置**，提升 Apple Silicon 与 Intel Mac 的安装包兼容性。
-- **新增添加文字功能**：编辑页可直接添加文字元素，文字编辑体验进一步优化。
-- 优化对话创作： 增加对话历史记录，用户可以查看和管理之前的对话记录，方便后续参考和继续创作。
-- 优化设置页：增加一些配置帮助说明。
-- 优化模板复用体验：从模板创建演示时的参数确认、模型选择和生成前校验更完整，减少模板结构异常导致的失败。
-- 优化导入与解析稳定性：文档解析、大纲归一化、PPTX 导入和风格抽取流程更稳，对复杂输入的容错更好。
-- 优化编辑体验：改进文字选中、字体编辑、图层检查和元素锚点定位，减少重叠元素或复杂页面中的误选和编辑偏差。
-- 优化技能提示词：更新图表与布局技能说明，生成图表、版式和页面结构时更贴合演示文稿场景。
+- 新增多任务生成：创建演示会话后可继续发起其他任务，无需停留在生成页面等待；会话列表会持续展示排队、生成进度和完成状态。
+- 新增应用内任务通知：生成完成、部分完成或失败时会在应用内及时提醒，并可直接进入对应会话查看结果。
+- 新增会话另存为：可复制当前演示的页面与素材创建独立新会话，适合保留原稿后继续制作不同版本。
+- 新增浏览模式：在编辑工作台中以更纯净的方式连续查看整套演示，编辑、浏览和演示等使用场景切换更清晰。
+- 新增艺术字：编辑页面可直接插入艺术字，并可以调整文案、效果和字号，标题与重点内容的视觉表现更丰富。
+- 新增模型兼容性设置：基础模型配置支持关闭 `temperature` 参数，兼容不接受该参数的模型服务。
+- 新增对话创作大纲编辑：可在生成前手动修改每页的标题、页面目标、内容摘要和关键要点，后续对话与生成会使用更新后的大纲。
+- 大幅增强资料理解与大纲解析：上传 Markdown、文本、CSV、DOCX 或图片后，可更准确地提炼章节、关键结论、数据和页面结构，让生成内容更贴近原始资料。
+- 增强对话创作：AI 能更持续地整理上传资料、创作目标和页面规划，在生成前形成更清晰、可调整的内容方案。
+- 增强 PPTX 导入：支持更好地还原表格、图表、页面大纲和动画信息，复杂演示导入后的可编辑性与结构完整度进一步提升。
+- 优化多模型任务执行：不同任务可分别选择运行模型，支持使用多个模型处理生成、编辑、模板复用、文档解析和演讲稿等任务。
+- 优化编辑工作台：重新组织顶部工具、页面导航、AI、生图、属性、演讲稿和历史记录等功能，常用操作更集中，编辑状态更清晰。
+- 优化编辑历史：撤销、重做和页面编辑记录更稳定，复杂编辑过程中的回退与恢复更可靠。
+- 优化大文件与长演示支持：演示页数上限提升至 500 页，PPTX 上传大小上限提升至 500MB。
+- 优化缩略图加载：长演示的页面缩略图按需加载，进入编辑页和滚动页面列表时更流畅。
+- 优化模板创建与复用：文档解析建议、模型选择和生成参数确认更集中，使用模板创建新内容时更直观。
+- 修复 macOS Apple Silicon 环境下部分会话包无法正常打开的问题。
 
-### En
+### English
 
-- Added AI image generation: create slide visuals from the editor, then add them to the canvas, set them as the slide background, or reveal the generated file locally.
-- Added image model configuration: connect Jimeng, Agnes AI, SiliconFlow, OpenAI-compatible image APIs, and Gemini image generation from Settings.
-- Added image prompt helpers: use "Outline prompt" and "Style prompt" to turn the current slide outline, visual style, and your own idea into a better image description.
-- Added model selection at run time: choose which model to use before creation, template reuse, style import, image parsing, and other AI-powered actions.
-- Added slide outlines: the editor can now read, display, and edit slide outlines, making the current slide context clearer during editing, import, page management, and single-slide regeneration.
-- Added HTTP/SOCKS proxy support: configure a proxy for model services to improve connectivity with external providers such as Gemini.
-- Added macOS Intel support: packaging configuration now better supports both Apple Silicon and Intel Macs.
-- Improved chat-to-create: conversation history is now easier to keep, review, and continue from during creative planning.
-- Improved Settings: added helpful configuration guidance.
-- Improved template reuse: stronger parameter confirmation, model selection, and pre-generation checks reduce failures from invalid template structure.
-- Improved import and parsing stability: document parsing, outline normalization, PPTX import, and style extraction now handle complex inputs more reliably.
-- Added text insertion: add text elements directly in the editor, with further improvements to text editing.
-- Improved editing: text selection, font editing, layer inspection, and element anchoring are more accurate on complex or overlapping slide elements.
-- Improved built-in skill prompts: chart and layout instructions now better match presentation-generation scenarios.
+- Added multi-task generation: start another presentation while existing tasks continue in the background, with queued, generating, and completed states visible from the Sessions page.
+- Added in-app task notifications: receive a notification when generation completes, partially completes, or fails, then open the related session directly.
+- Added Save as New Session: duplicate the current slides and assets into an independent session, making it easier to preserve the original while creating variations.
+- Added Browse mode: review the full presentation in a cleaner workspace, with clearer transitions between editing, browsing, and presenting.
+- Added WordArt: insert stylized text directly in the editor and adjust its content, effect, and size for more expressive titles and highlights.
+- Added a model compatibility option: Base Model Configuration can omit the `temperature` parameter for services that do not support it.
+- Added outline editing in Chat to Create: revise each slide's title, objective, summary, and key points before generation; later conversations and generation use the updated outline.
+- Significantly improved source understanding and outline parsing: Markdown, text, CSV, DOCX, and image uploads are now better organized into chapters, key findings, data points, and slide structures.
+- Enhanced Chat to Create: AI now maintains a clearer understanding of uploaded sources, creative goals, and slide plans before turning them into a generation-ready outline.
+- Enhanced PPTX import: tables, charts, slide outlines, and animation metadata are restored more accurately for better editability and structural fidelity.
+- Improved multi-model task execution: different tasks can use different models for generation, editing, template reuse, document parsing, speaker scripts, and more.
+- Improved the editing workspace: reorganized tools for page navigation, AI, image generation, properties, speaker scripts, and history so common actions are easier to find and current modes are clearer.
+- Improved edit history: undo, redo, and slide edit records are more reliable during longer or more complex editing sessions.
+- Improved support for large files and long presentations: presentations can now contain up to 500 slides, and PPTX uploads can be up to 500MB.
+- Improved thumbnail loading: slide thumbnails are loaded on demand for smoother entry and scrolling in long presentations.
+- Improved template creation and reuse: document suggestions, model selection, and generation settings are now presented in a more focused workflow.
+- Fixed an issue that could prevent some session packages from opening on Apple Silicon Macs.
 
 
-<p>
-<img width="30%" alt="clipboard-image-1780408100" src="https://github.com/user-attachments/assets/455ce2b5-f9a7-4877-9140-7e0512ae03a8" />
-<img width="30%"  alt="clipboard-image-1780407998" src="https://github.com/user-attachments/assets/2df7c9b7-a7df-4aac-8ef7-9d67e8831abd" />
-<img width="30%"  alt="clipboard-image-1780408075" src="https://github.com/user-attachments/assets/7a69c3c1-806e-47db-b3c4-8f605ca090ea" />
-</p>
-
-十分感谢大家支持！目前主要由我一人开发和维护，如果您觉得 Oh My PPT 对您有所帮助，可以赞助支持一下：
-
-[支持赞助token](https://arcsin1.github.io/#/sponsor)
